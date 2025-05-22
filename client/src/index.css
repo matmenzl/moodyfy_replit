@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
+    
+    --card: 0 0% 16%;
+    --card-foreground: 0 0% 100%;
+    
+    --popover: 0 0% 16%;
+    --popover-foreground: 0 0% 100%;
+    
+    --primary: 142 70% 42%;
+    --primary-foreground: 0 0% 0%;
+    
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 70%;
+    
+    --accent: 142 70% 42%;
+    --accent-foreground: 0 0% 0%;
+    
+    --destructive: 353 86% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 16%;
+    --ring: 142 70% 42%;
+    
+    --radius: 0.5rem;
+    
+    /* Spotify specific colors */
+    --spotify-green: 142 70% 42%;
+    --spotify-bright: 142 70% 45%;
+    --spotify-black: 0 0% 7%;
+    --spotify-dark-gray: 0 0% 9%;
+    --spotify-gray: 0 0% 16%;
+    --spotify-light-gray: 0 0% 70%;
+    --spotify-error: 353 86% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-[hsl(var(--spotify-black))] text-foreground;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(29, 185, 84, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(29, 185, 84, 0.05) 0px, transparent 50%);
+  }
+
+  .playlist-item {
+    transition: all 0.2s ease;
+  }
+  
+  .playlist-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  }
+  
+  .spotify-button {
+    transition: all 0.3s ease;
+  }
+  
+  .spotify-button:hover {
+    transform: scale(1.03);
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.5); }
+    50% { transform: scaleY(1); }
+  }
+  
+  .equalizer-bar {
+    animation: wave 1s ease-in-out infinite;
+    transform-origin: bottom;
+  }
+  
+  .equalizer-bar:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .equalizer-bar:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  /* Custom Switch styling for Spotify theme */
+  .spotify-switch[data-state="checked"] {
+    background-color: hsl(var(--spotify-green)) !important;
+  }
+  
+  .spotify-switch[data-state="unchecked"] {
+    background-color: hsl(var(--spotify-dark-gray)) !important;
+  }
+}
